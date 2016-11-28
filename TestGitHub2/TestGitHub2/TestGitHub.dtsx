@@ -1,0 +1,885 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/28/2016 2:31:28 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="TAREK-LAPTOP"
+  DTS:CreatorName="INEDGE\Tarek.Yaagoubi"
+  DTS:DTSID="{9D2C2760-2FE6-4F05-80DA-D4071885793E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2150.2"
+  DTS:LocaleID="4105"
+  DTS:ObjectName="TestGitHub"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{B3C00E4E-343E-4F19-87A8-F58099587A14}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TAREK-LAPTOP.DistrisysSA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3672D470-F51E-49EF-8E18-FD2B22CD50A2}"
+      DTS:ObjectName="TAREK-LAPTOP.DistrisysSA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=TAREK-LAPTOP;Initial Catalog=DistrisysSA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\TestGitHub"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2A1C8CF8-8070-4FC2-92A2-6F807F4CE25D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TestGitHub"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\TestGitHub\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[TestGitHub]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TestGitHub\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[TAREK-LAPTOP.DistrisysSA]"
+                  connectionManagerRefId="Package.ConnectionManagers[TAREK-LAPTOP.DistrisysSA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FactureID]"
+                      cachedDataType="i4"
+                      cachedName="FactureID"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FactureID]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactureID]" />
+                    <inputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SiteCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SiteCode"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SiteCode]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteCode]" />
+                    <inputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProduitCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ProduitCode"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProduitCode]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProduitCode]" />
+                    <inputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ClientCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ClientCode"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClientCode]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClientCode]" />
+                    <inputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NumFacture]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="NumFacture"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumFacture]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[NumFacture]" />
+                    <inputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateFacturation]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateFacturation"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateFacturation]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateFacturation]" />
+                    <inputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CommandeFacture]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="CommandeFacture"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CommandeFacture]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommandeFacture]" />
+                    <inputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quantite]"
+                      cachedDataType="i4"
+                      cachedName="Quantite"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantite]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantite]" />
+                    <inputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PrixUnitaireCatalogue]"
+                      cachedDataType="numeric"
+                      cachedName="PrixUnitaireCatalogue"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrixUnitaireCatalogue]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrixUnitaireCatalogue]" />
+                    <inputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PrixUnitaireHT]"
+                      cachedDataType="numeric"
+                      cachedName="PrixUnitaireHT"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrixUnitaireHT]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrixUnitaireHT]" />
+                    <inputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PrixTotalHT]"
+                      cachedDataType="numeric"
+                      cachedName="PrixTotalHT"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrixTotalHT]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrixTotalHT]" />
+                    <inputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RemiseHT]"
+                      cachedDataType="numeric"
+                      cachedName="RemiseHT"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemiseHT]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemiseHT]" />
+                    <inputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CoutDirectMatiere]"
+                      cachedDataType="numeric"
+                      cachedName="CoutDirectMatiere"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoutDirectMatiere]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoutDirectMatiere]" />
+                    <inputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CoutDirectMainOeuvre]"
+                      cachedDataType="numeric"
+                      cachedName="CoutDirectMainOeuvre"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoutDirectMainOeuvre]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoutDirectMainOeuvre]" />
+                    <inputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CoutIndirect]"
+                      cachedDataType="numeric"
+                      cachedName="CoutIndirect"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoutIndirect]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoutIndirect]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FactureID]"
+                      dataType="i4"
+                      name="FactureID" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SiteCode" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ProduitCode" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClientCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ClientCode" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="NumFacture" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateFacturation]"
+                      dataType="dbTimeStamp"
+                      name="DateFacturation" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CommandeFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="CommandeFacture" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantite]"
+                      dataType="i4"
+                      name="Quantite" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrixUnitaireCatalogue]"
+                      dataType="numeric"
+                      name="PrixUnitaireCatalogue"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrixUnitaireHT]"
+                      dataType="numeric"
+                      name="PrixUnitaireHT"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrixTotalHT]"
+                      dataType="numeric"
+                      name="PrixTotalHT"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemiseHT]"
+                      dataType="numeric"
+                      name="RemiseHT"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoutDirectMatiere]"
+                      dataType="numeric"
+                      name="CoutDirectMatiere"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoutDirectMainOeuvre]"
+                      dataType="numeric"
+                      name="CoutDirectMainOeuvre"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoutIndirect]"
+                      dataType="numeric"
+                      name="CoutIndirect"
+                      precision="9"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TestGitHub\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TestGitHub\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TestGitHub\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TestGitHub\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Facture]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TestGitHub\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[TAREK-LAPTOP.DistrisysSA]"
+                  connectionManagerRefId="Package.ConnectionManagers[TAREK-LAPTOP.DistrisysSA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactureID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FactureID]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[FactureID]"
+                      name="FactureID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SiteCode]"
+                      length="10"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteCode]"
+                      name="SiteCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProduitCode]"
+                      length="10"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProduitCode]"
+                      name="ProduitCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClientCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClientCode]"
+                      length="10"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClientCode]"
+                      name="ClientCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[NumFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NumFacture]"
+                      length="6"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[NumFacture]"
+                      name="NumFacture"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateFacturation]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateFacturation]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateFacturation]"
+                      name="DateFacturation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommandeFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CommandeFacture]"
+                      length="1"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommandeFacture]"
+                      name="CommandeFacture"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantite]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Quantite]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantite]"
+                      name="Quantite"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrixUnitaireCatalogue]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrixUnitaireCatalogue]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrixUnitaireCatalogue]"
+                      name="PrixUnitaireCatalogue"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrixUnitaireHT]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrixUnitaireHT]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrixUnitaireHT]"
+                      name="PrixUnitaireHT"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrixTotalHT]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrixTotalHT]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrixTotalHT]"
+                      name="PrixTotalHT"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemiseHT]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemiseHT]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemiseHT]"
+                      name="RemiseHT"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoutDirectMatiere]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CoutDirectMatiere]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoutDirectMatiere]"
+                      name="CoutDirectMatiere"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoutDirectMainOeuvre]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CoutDirectMainOeuvre]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoutDirectMainOeuvre]"
+                      name="CoutDirectMainOeuvre"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoutIndirect]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CoutIndirect]"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoutIndirect]"
+                      name="CoutIndirect"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FactureID]"
+                      dataType="i4"
+                      name="FactureID" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SiteCode" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ProduitCode" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClientCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ClientCode" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NumFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="NumFacture" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateFacturation]"
+                      dataType="dbTimeStamp"
+                      name="DateFacturation" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CommandeFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="CommandeFacture" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Quantite]"
+                      dataType="i4"
+                      name="Quantite" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrixUnitaireCatalogue]"
+                      dataType="numeric"
+                      name="PrixUnitaireCatalogue"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrixUnitaireHT]"
+                      dataType="numeric"
+                      name="PrixUnitaireHT"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrixTotalHT]"
+                      dataType="numeric"
+                      name="PrixTotalHT"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemiseHT]"
+                      dataType="numeric"
+                      name="RemiseHT"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CoutDirectMatiere]"
+                      dataType="numeric"
+                      name="CoutDirectMatiere"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CoutDirectMainOeuvre]"
+                      dataType="numeric"
+                      name="CoutDirectMainOeuvre"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CoutIndirect]"
+                      dataType="numeric"
+                      name="CoutIndirect"
+                      precision="9"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FactureID]"
+                      dataType="i4"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FactureID]"
+                      name="FactureID" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SiteCode]"
+                      name="SiteCode" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProduitCode]"
+                      name="ProduitCode" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClientCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClientCode]"
+                      name="ClientCode" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NumFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NumFacture]"
+                      name="NumFacture" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateFacturation]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateFacturation]"
+                      name="DateFacturation" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CommandeFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CommandeFacture]"
+                      name="CommandeFacture" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Quantite]"
+                      dataType="i4"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Quantite]"
+                      name="Quantite" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrixUnitaireCatalogue]"
+                      dataType="numeric"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrixUnitaireCatalogue]"
+                      name="PrixUnitaireCatalogue"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrixUnitaireHT]"
+                      dataType="numeric"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrixUnitaireHT]"
+                      name="PrixUnitaireHT"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrixTotalHT]"
+                      dataType="numeric"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrixTotalHT]"
+                      name="PrixTotalHT"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemiseHT]"
+                      dataType="numeric"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemiseHT]"
+                      name="RemiseHT"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CoutDirectMatiere]"
+                      dataType="numeric"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CoutDirectMatiere]"
+                      name="CoutDirectMatiere"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CoutDirectMainOeuvre]"
+                      dataType="numeric"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CoutDirectMainOeuvre]"
+                      name="CoutDirectMainOeuvre"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CoutIndirect]"
+                      dataType="numeric"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CoutIndirect]"
+                      name="CoutIndirect"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\TestGitHub.Paths[OLE DB Source Output]"
+              endId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\TestGitHub"
+          TopLeft="86.8571443363112,39.1529417255758" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\TestGitHub">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\TestGitHub\OLE DB Source"
+          TopLeft="26.2857147333573,52.6117654437425" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\TestGitHub\OLE DB Destination"
+          TopLeft="296.57143362201,125.411766464735" />
+        <EdgeLayout
+          Id="Package\TestGitHub.Paths[OLE DB Source Output]"
+          TopLeft="101.085714733357,94.2117654437425">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="280.685718888653,31.2000010209925"
+              Start="0,0"
+              End="280.685718888653,23.7000010209925">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.6000005104963" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.6000005104963"
+                    Point2="0,15.6000005104963"
+                    Point3="4,15.6000005104963" />
+                  <mssgle:LineSegment
+                    End="276.685718888653,15.6000005104963" />
+                  <mssgle:CubicBezierSegment
+                    Point1="276.685718888653,15.6000005104963"
+                    Point2="280.685718888653,15.6000005104963"
+                    Point3="280.685718888653,19.6000005104963" />
+                  <mssgle:LineSegment
+                    End="280.685718888653,23.7000010209925" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TestGitHub\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\TestGitHub\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
