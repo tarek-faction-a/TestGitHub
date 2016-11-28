@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/28/2016 2:31:28 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="TestGitHub"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{B3C00E4E-343E-4F19-87A8-F58099587A14}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{025EDF25-BABC-4448-B4E2-D60C79AB60BA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -59,7 +59,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[TestGitHub]</property>
+                  name="OpenRowset">[testGitHub4]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -221,14 +221,6 @@
                       cachedScale="2"
                       externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoutDirectMainOeuvre]"
                       lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoutDirectMainOeuvre]" />
-                    <inputColumn
-                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CoutIndirect]"
-                      cachedDataType="numeric"
-                      cachedName="CoutIndirect"
-                      cachedPrecision="9"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoutIndirect]"
-                      lineageId="Package\TestGitHub\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoutIndirect]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -308,12 +300,6 @@
                       refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoutDirectMainOeuvre]"
                       dataType="numeric"
                       name="CoutDirectMainOeuvre"
-                      precision="9"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\TestGitHub\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoutIndirect]"
-                      dataType="numeric"
-                      name="CoutIndirect"
                       precision="9"
                       scale="2" />
                   </externalMetadataColumns>
@@ -811,13 +797,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\TestGitHub\OLE DB Source"
-          TopLeft="26.2857147333573,52.6117654437425" />
-        <NodeLayout
           Size="170.4,41.6"
           Id="Package\TestGitHub\OLE DB Destination"
           TopLeft="296.57143362201,125.411766464735" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\TestGitHub\OLE DB Source"
+          TopLeft="26.2857147333573,52.6117654437425" />
         <EdgeLayout
           Id="Package\TestGitHub.Paths[OLE DB Source Output]"
           TopLeft="101.085714733357,94.2117654437425">
@@ -856,7 +842,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\TestGitHub\OLE DB Source">
+    design-time-name="Package\TestGitHub\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -869,7 +855,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\TestGitHub\OLE DB Destination">
+    design-time-name="Package\TestGitHub\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
