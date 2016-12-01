@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="TestGitHub"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{025EDF25-BABC-4448-B4E2-D60C79AB60BA}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{108C1B8D-47A5-4E62-8AB4-38D9457B5E17}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
